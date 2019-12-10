@@ -1,0 +1,9 @@
+# HELP prober_probe_total [ALPHA] Cumulative number of a liveness, readiness or startup probe for a container by result.
+# TYPE prober_probe_total counter
+prober_probe_total{container="dnsmasq",namespace="kube-system",pod="kube-dns-547db76c8f-gtbhj",pod_uid="3a4ddaf0-c644-4880-846a-10123e486537",probe_type="Liveness",result="successful"} 425
+prober_probe_total{container="kubedns",namespace="kube-system",pod="kube-dns-547db76c8f-gtbhj",pod_uid="3a4ddaf0-c644-4880-846a-10123e486537",probe_type="Liveness",result="successful"} 425
+prober_probe_total{container="kubedns",namespace="kube-system",pod="kube-dns-547db76c8f-gtbhj",pod_uid="3a4ddaf0-c644-4880-846a-10123e486537",probe_type="Readiness",result="successful"} 430
+prober_probe_total{container="sidecar",namespace="kube-system",pod="kube-dns-547db76c8f-gtbhj",pod_uid="3a4ddaf0-c644-4880-846a-10123e486537",probe_type="Liveness",result="successful"} 425
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.57596373123e+09
