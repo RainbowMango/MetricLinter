@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 
 	"github.com/prometheus/prometheus/util/promlint"
@@ -12,6 +13,18 @@ type metrics struct {
 	name     string
 	endpoint string
 	file     string
+	report   string
+}
+
+func RecordReport(report string, problems []promlint.Problem) {
+	f, err := os.Create(report)
+	if err != nil {
+		panic(fmt.Sprintf("create file %s failed with error: %v", report, err))
+	}
+
+	for i := range problems {
+		_, _ = f.WriteString(fmt.Sprintf("%s\n", problems[i].Text))
+	}
 }
 
 func main() {
@@ -20,6 +33,7 @@ func main() {
 			name:     "kube-apiserver",
 			endpoint: "/metrics",
 			file:     "data/apimetrics",
+			report:   "report/kube-apiserver.log",
 		},
 	}
 
@@ -44,9 +58,7 @@ func main() {
 			continue
 		}
 
-		fmt.Printf("The problems are: \n")
-		for i := range problems {
-			fmt.Printf("%v\n", problems[i])
-		}
+		RecordReport(m.report, problems)
+		fmt.Printf("The problems number: %d\n", len(problems))
 	}
 }
