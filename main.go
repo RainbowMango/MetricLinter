@@ -17,6 +17,8 @@ type metrics struct {
 }
 
 func RecordReport(report string, problems []promlint.Problem) {
+	problemMap := make(map[string][]string)
+
 	f, err := os.Create(report)
 	if err != nil {
 		panic(fmt.Sprintf("create file %s failed with error: %v", report, err))
@@ -24,7 +26,10 @@ func RecordReport(report string, problems []promlint.Problem) {
 
 	for i := range problems {
 		_, _ = f.WriteString(fmt.Sprintf("%s: %s\n", problems[i].Metric, problems[i].Text))
+		problemMap[problems[i].Metric] = append(problemMap[problems[i].Metric], problems[i].Text)
 	}
+
+	fmt.Printf("Total number of metrics with problems: %d\n", len(problemMap))
 }
 
 func main() {
@@ -95,6 +100,5 @@ func main() {
 		}
 
 		RecordReport(m.report, problems)
-		fmt.Printf("The problems number: %d\n", len(problems))
 	}
 }

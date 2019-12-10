@@ -1,11 +1,11 @@
 aggregator_openapi_v2_regeneration_count: counter metrics should have "_total" suffix
-get_token_count: counter metrics should have "_total" suffix
-apiserver_longrunning_gauge: metric name should not include type 'gauge'
-aggregator_openapi_v2_regeneration_count: non-histogram and non-summary metrics should not have "_count" suffix
 authenticated_user_requests: counter metrics should have "_total" suffix
-authentication_attempts: counter metrics should have "_total" suffix
-get_token_fail_count: counter metrics should have "_total" suffix
 ssh_tunnel_open_count: counter metrics should have "_total" suffix
+apiserver_admission_step_admission_duration_seconds_summary: metric name should not include type 'summary'
+aggregator_openapi_v2_regeneration_count: non-histogram and non-summary metrics should not have "_count" suffix
+authentication_attempts: counter metrics should have "_total" suffix
+get_token_count: counter metrics should have "_total" suffix
+get_token_fail_count: counter metrics should have "_total" suffix
 ssh_tunnel_open_fail_count: counter metrics should have "_total" suffix
 apiserver_current_inflight_requests: label names should be written in 'snake_case' not 'camelCase'
 apiserver_current_inflight_requests: label names should be written in 'snake_case' not 'camelCase'
@@ -267,7 +267,7 @@ apiserver_request_total: label names should be written in 'snake_case' not 'came
 apiserver_request_total: label names should be written in 'snake_case' not 'camelCase'
 apiserver_request_total: label names should be written in 'snake_case' not 'camelCase'
 apiserver_request_total: label names should be written in 'snake_case' not 'camelCase'
-apiserver_admission_step_admission_duration_seconds_summary: metric name should not include type 'summary'
+apiserver_longrunning_gauge: metric name should not include type 'gauge'
 get_token_count: non-histogram and non-summary metrics should not have "_count" suffix
 get_token_fail_count: non-histogram and non-summary metrics should not have "_count" suffix
 ssh_tunnel_open_count: non-histogram and non-summary metrics should not have "_count" suffix

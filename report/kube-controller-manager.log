@@ -2,12 +2,12 @@ attachdetach_controller_forced_detaches: counter metrics should have "_total" su
 authenticated_user_requests: counter metrics should have "_total" suffix
 authentication_attempts: counter metrics should have "_total" suffix
 get_token_count: counter metrics should have "_total" suffix
-get_token_count: non-histogram and non-summary metrics should not have "_count" suffix
 get_token_fail_count: counter metrics should have "_total" suffix
+kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
+kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
+kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
+kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
+kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
 node_collector_evictions_number: counter metrics should have "_total" suffix
-kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
-kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
-kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
-kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
-kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
+get_token_count: non-histogram and non-summary metrics should not have "_count" suffix
 get_token_fail_count: non-histogram and non-summary metrics should not have "_count" suffix
