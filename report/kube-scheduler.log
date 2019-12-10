@@ -1,1 +1,1 @@
-metrics scheduler_total_preemption_attempts: counter metrics should have "_total" suffix
+scheduler_total_preemption_attempts: counter metrics should have "_total" suffix

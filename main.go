@@ -23,7 +23,7 @@ func RecordReport(report string, problems []promlint.Problem) {
 	}
 
 	for i := range problems {
-		_, _ = f.WriteString(fmt.Sprintf("metrics %s: %s\n", problems[i].Metric, problems[i].Text))
+		_, _ = f.WriteString(fmt.Sprintf("%s: %s\n", problems[i].Metric, problems[i].Text))
 	}
 }
 
