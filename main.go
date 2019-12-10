@@ -29,7 +29,10 @@ func RecordReport(report string, problems []promlint.Problem) {
 		problemMap[problems[i].Metric] = append(problemMap[problems[i].Metric], problems[i].Text)
 	}
 
-	fmt.Printf("Total number of metrics with problems: %d\n", len(problemMap))
+	_, _ = f.WriteString(fmt.Sprintf("\n\nTotal number of metrics with problems: %d\n", len(problemMap)))
+	for name, _ := range problemMap {
+		_, _ = f.WriteString(fmt.Sprintf("%s\n", name))
+	}
 }
 
 func main() {

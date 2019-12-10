@@ -3,3 +3,7 @@ kubernetes_build_info: label names should be written in 'snake_case' not 'camelC
 kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
 kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
 kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
+
+
+Total number of metrics with problems: 1
+kubernetes_build_info
