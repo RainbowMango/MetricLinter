@@ -1,2 +1,2 @@
-non-counter metrics should not have "_total" suffix
-non-counter metrics should not have "_total" suffix
+metrics container_cpu_usage_seconds_total: non-counter metrics should not have "_total" suffix
+metrics node_cpu_usage_seconds_total: non-counter metrics should not have "_total" suffix
