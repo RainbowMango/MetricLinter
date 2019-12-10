@@ -1,0 +1,13 @@
+counter metrics should have "_total" suffix
+counter metrics should have "_total" suffix
+counter metrics should have "_total" suffix
+counter metrics should have "_total" suffix
+counter metrics should have "_total" suffix
+counter metrics should have "_total" suffix
+label names should be written in 'snake_case' not 'camelCase'
+label names should be written in 'snake_case' not 'camelCase'
+label names should be written in 'snake_case' not 'camelCase'
+label names should be written in 'snake_case' not 'camelCase'
+label names should be written in 'snake_case' not 'camelCase'
+non-histogram and non-summary metrics should not have "_count" suffix
+non-histogram and non-summary metrics should not have "_count" suffix
