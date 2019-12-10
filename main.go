@@ -67,7 +67,7 @@ func main() {
 		},
 		{
 			name:     "cloud-controller-manager",
-			endpoint: "/metrics", // curl localhost:10253/metrics
+			endpoint: "/metrics", // curl localhost:10253/metrics (not available on local cluster started by hack/local-cluster.sh)
 			file:     "data/cloudcontrollermanager",
 			report:   "report/cloud-controller-manager.log",
 		},
