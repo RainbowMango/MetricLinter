@@ -70,6 +70,12 @@ func main() {
 			report:   "report/kubelet-resource-v1alpha1.log",
 		},
 		{
+			name:     "kubelet-resource",
+			endpoint: "/metrics/resource", // curl localhost:10255/metrics/resource
+			file:     "data/kubeletresource",
+			report:   "report/kubelet-resource.log",
+		},
+		{
 			name:     "kubelet-probes",
 			endpoint: "/metrics/probes", // curl localhost:10255/metrics/probes
 			file:     "data/kubeletprobes",
