@@ -64,10 +64,10 @@ func main() {
 			report:   "report/kube-proxy.log",
 		},
 		{
-			name:     "kubelet-resource",
+			name:     "kubelet-resource-v1alpha1",
 			endpoint: "/metrics/resource/v1alpha1", // curl localhost:10255/metrics/resource/v1alpha1
-			file:     "data/kubeletresource",
-			report:   "report/kubelet-resource.log",
+			file:     "data/kubeletresourcev1alpha1",
+			report:   "report/kubelet-resource-v1alpha1.log",
 		},
 		{
 			name:     "kubelet-probes",
