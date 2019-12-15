@@ -275,14 +275,14 @@ ssh_tunnel_open_fail_count: non-histogram and non-summary metrics should not hav
 
 
 Total number of metrics with problems: 11
-get_token_fail_count
-authenticated_user_requests
-apiserver_longrunning_gauge
 aggregator_openapi_v2_regeneration_count
-ssh_tunnel_open_fail_count
-ssh_tunnel_open_count
-get_token_count
-authentication_attempts
-apiserver_request_total
-apiserver_current_inflight_requests
 apiserver_admission_step_admission_duration_seconds_summary
+apiserver_current_inflight_requests
+apiserver_longrunning_gauge
+apiserver_request_total
+authenticated_user_requests
+authentication_attempts
+get_token_count
+get_token_fail_count
+ssh_tunnel_open_count
+ssh_tunnel_open_fail_count

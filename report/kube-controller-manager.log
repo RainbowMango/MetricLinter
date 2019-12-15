@@ -15,9 +15,9 @@ node_collector_evictions_number: counter metrics should have "_total" suffix
 
 Total number of metrics with problems: 7
 attachdetach_controller_forced_detaches
-node_collector_evictions_number
-kubernetes_build_info
-get_token_fail_count
-get_token_count
-authentication_attempts
 authenticated_user_requests
+authentication_attempts
+get_token_count
+get_token_fail_count
+kubernetes_build_info
+node_collector_evictions_number

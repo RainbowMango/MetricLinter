@@ -36,7 +36,7 @@ func RecordReport(report string, problems []promlint.Problem) {
 		metricsNames = append(metricsNames, name)
 	}
 	sort.SliceStable(metricsNames, func(i, j int) bool {
-		return i > j
+		return metricsNames[i] < metricsNames[j]
 	})
 	for _, m := range metricsNames {
 		_, _ = f.WriteString(fmt.Sprintf("%s\n", m))

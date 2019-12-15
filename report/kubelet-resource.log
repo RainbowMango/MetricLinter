@@ -3,5 +3,5 @@ node_cpu_usage_seconds_total: non-counter metrics should not have "_total" suffi
 
 
 Total number of metrics with problems: 2
-node_cpu_usage_seconds_total
 container_cpu_usage_seconds_total
+node_cpu_usage_seconds_total
