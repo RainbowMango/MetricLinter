@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"sort"
 	"strings"
 
 	"github.com/prometheus/prometheus/util/promlint"
@@ -30,8 +31,15 @@ func RecordReport(report string, problems []promlint.Problem) {
 	}
 
 	_, _ = f.WriteString(fmt.Sprintf("\n\nTotal number of metrics with problems: %d\n", len(problemMap)))
+	metricsNames := make([]string, 0, len(problemMap))
 	for name, _ := range problemMap {
-		_, _ = f.WriteString(fmt.Sprintf("%s\n", name))
+		metricsNames = append(metricsNames, name)
+	}
+	sort.SliceStable(metricsNames, func(i, j int) bool {
+		return i > j
+	})
+	for _, m := range metricsNames {
+		_, _ = f.WriteString(fmt.Sprintf("%s\n", m))
 	}
 }
 

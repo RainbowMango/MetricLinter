@@ -2,8 +2,8 @@ attachdetach_controller_forced_detaches: counter metrics should have "_total" su
 authenticated_user_requests: counter metrics should have "_total" suffix
 authentication_attempts: counter metrics should have "_total" suffix
 get_token_count: counter metrics should have "_total" suffix
-get_token_fail_count: counter metrics should have "_total" suffix
 get_token_count: non-histogram and non-summary metrics should not have "_count" suffix
+get_token_fail_count: counter metrics should have "_total" suffix
 get_token_fail_count: non-histogram and non-summary metrics should not have "_count" suffix
 kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
 kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
@@ -14,10 +14,10 @@ node_collector_evictions_number: counter metrics should have "_total" suffix
 
 
 Total number of metrics with problems: 7
-authentication_attempts
-get_token_count
-get_token_fail_count
-kubernetes_build_info
-node_collector_evictions_number
 attachdetach_controller_forced_detaches
+node_collector_evictions_number
+kubernetes_build_info
+get_token_fail_count
+get_token_count
+authentication_attempts
 authenticated_user_requests
