@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/prometheus/prometheus/util/promlint"
+	"github.com/prometheus/client_golang/prometheus/testutil/promlint"
 )
 
 type metrics struct {
