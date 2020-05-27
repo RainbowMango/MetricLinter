@@ -1,5 +1,9 @@
-scheduler_total_preemption_attempts: counter metrics should have "_total" suffix
+kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
+kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
+kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
+kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
+kubernetes_build_info: label names should be written in 'snake_case' not 'camelCase'
 
 
 Total number of metrics with problems: 1
-scheduler_total_preemption_attempts
+kubernetes_build_info

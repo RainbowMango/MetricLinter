@@ -23,6 +23,9 @@ apiserver_client_certificate_expiration_seconds_bucket{le="3.1104e+07"} 0
 apiserver_client_certificate_expiration_seconds_bucket{le="+Inf"} 0
 apiserver_client_certificate_expiration_seconds_sum 0
 apiserver_client_certificate_expiration_seconds_count 0
+# HELP apiserver_envelope_encryption_dek_cache_fill_percent [ALPHA] Percent of the cache slots currently occupied by cached DEKs.
+# TYPE apiserver_envelope_encryption_dek_cache_fill_percent gauge
+apiserver_envelope_encryption_dek_cache_fill_percent 0
 # HELP apiserver_storage_data_key_generation_duration_seconds [ALPHA] Latencies in seconds of data encryption key(DEK) generation operations.
 # TYPE apiserver_storage_data_key_generation_duration_seconds histogram
 apiserver_storage_data_key_generation_duration_seconds_bucket{le="5e-06"} 0
@@ -59,9 +62,9 @@ authenticated_user_requests{username="other"} 3
 authentication_attempts{result="success"} 3
 # HELP authentication_duration_seconds [ALPHA] Authentication duration in seconds broken out by result.
 # TYPE authentication_duration_seconds histogram
-authentication_duration_seconds_bucket{result="success",le="0.001"} 3
-authentication_duration_seconds_bucket{result="success",le="0.002"} 3
-authentication_duration_seconds_bucket{result="success",le="0.004"} 3
+authentication_duration_seconds_bucket{result="success",le="0.001"} 0
+authentication_duration_seconds_bucket{result="success",le="0.002"} 0
+authentication_duration_seconds_bucket{result="success",le="0.004"} 0
 authentication_duration_seconds_bucket{result="success",le="0.008"} 3
 authentication_duration_seconds_bucket{result="success",le="0.016"} 3
 authentication_duration_seconds_bucket{result="success",le="0.032"} 3
@@ -75,7 +78,7 @@ authentication_duration_seconds_bucket{result="success",le="4.096"} 3
 authentication_duration_seconds_bucket{result="success",le="8.192"} 3
 authentication_duration_seconds_bucket{result="success",le="16.384"} 3
 authentication_duration_seconds_bucket{result="success",le="+Inf"} 3
-authentication_duration_seconds_sum{result="success"} 0.000101707
+authentication_duration_seconds_sum{result="success"} 0.013834177
 authentication_duration_seconds_count{result="success"} 3
 # HELP cronjob_controller_rate_limiter_use [ALPHA] A metric measuring the saturation of the rate limiter for cronjob_controller
 # TYPE cronjob_controller_rate_limiter_use gauge
@@ -89,6 +92,62 @@ deployment_controller_rate_limiter_use 0
 # HELP endpoint_controller_rate_limiter_use [ALPHA] A metric measuring the saturation of the rate limiter for endpoint_controller
 # TYPE endpoint_controller_rate_limiter_use gauge
 endpoint_controller_rate_limiter_use 0
+# HELP endpoint_slice_controller_changes [ALPHA] Number of EndpointSlice changes
+# TYPE endpoint_slice_controller_changes counter
+endpoint_slice_controller_changes{operation="create"} 1
+endpoint_slice_controller_changes{operation="update"} 5
+# HELP endpoint_slice_controller_desired_endpoint_slices [ALPHA] Number of EndpointSlices that would exist with perfect endpoint allocation
+# TYPE endpoint_slice_controller_desired_endpoint_slices gauge
+endpoint_slice_controller_desired_endpoint_slices 1
+# HELP endpoint_slice_controller_endpoints_added_per_sync [ALPHA] Number of endpoints added on each Service sync
+# TYPE endpoint_slice_controller_endpoints_added_per_sync histogram
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="2"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="4"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="8"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="16"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="32"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="64"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="128"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="256"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="512"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="1024"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="2048"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="4096"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="8192"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="16384"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="32768"} 8
+endpoint_slice_controller_endpoints_added_per_sync_bucket{le="+Inf"} 8
+endpoint_slice_controller_endpoints_added_per_sync_sum 1
+endpoint_slice_controller_endpoints_added_per_sync_count 8
+# HELP endpoint_slice_controller_endpoints_desired [ALPHA] Number of endpoints desired
+# TYPE endpoint_slice_controller_endpoints_desired gauge
+endpoint_slice_controller_endpoints_desired 1
+# HELP endpoint_slice_controller_endpoints_removed_per_sync [ALPHA] Number of endpoints removed on each Service sync
+# TYPE endpoint_slice_controller_endpoints_removed_per_sync histogram
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="2"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="4"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="8"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="16"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="32"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="64"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="128"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="256"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="512"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="1024"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="2048"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="4096"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="8192"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="16384"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="32768"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_bucket{le="+Inf"} 8
+endpoint_slice_controller_endpoints_removed_per_sync_sum 0
+endpoint_slice_controller_endpoints_removed_per_sync_count 8
+# HELP endpoint_slice_controller_num_endpoint_slices [ALPHA] Number of EndpointSlices
+# TYPE endpoint_slice_controller_num_endpoint_slices gauge
+endpoint_slice_controller_num_endpoint_slices 1
+# HELP endpoint_slice_controller_rate_limiter_use [ALPHA] A metric measuring the saturation of the rate limiter for endpoint_slice_controller
+# TYPE endpoint_slice_controller_rate_limiter_use gauge
+endpoint_slice_controller_rate_limiter_use 0
 # HELP gc_controller_rate_limiter_use [ALPHA] A metric measuring the saturation of the rate limiter for gc_controller
 # TYPE gc_controller_rate_limiter_use gauge
 gc_controller_rate_limiter_use 0
@@ -98,66 +157,66 @@ get_token_count 0
 # HELP get_token_fail_count [ALPHA] Counter of failed Token() requests to the alternate token source
 # TYPE get_token_fail_count counter
 get_token_fail_count 0
-# HELP go_gc_duration_seconds A summary of the GC invocation durations.
+# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
 # TYPE go_gc_duration_seconds summary
-go_gc_duration_seconds{quantile="0"} 1.2459e-05
-go_gc_duration_seconds{quantile="0.25"} 2.1288e-05
-go_gc_duration_seconds{quantile="0.5"} 2.9477e-05
-go_gc_duration_seconds{quantile="0.75"} 4.1771e-05
-go_gc_duration_seconds{quantile="1"} 0.000862658
-go_gc_duration_seconds_sum 0.00398456
-go_gc_duration_seconds_count 48
+go_gc_duration_seconds{quantile="0"} 1.6939e-05
+go_gc_duration_seconds{quantile="0.25"} 2.4366e-05
+go_gc_duration_seconds{quantile="0.5"} 3.1422e-05
+go_gc_duration_seconds{quantile="0.75"} 3.7436e-05
+go_gc_duration_seconds{quantile="1"} 0.000231752
+go_gc_duration_seconds_sum 0.000871871
+go_gc_duration_seconds_count 20
 # HELP go_goroutines Number of goroutines that currently exist.
 # TYPE go_goroutines gauge
-go_goroutines 857
+go_goroutines 941
 # HELP go_info Information about the Go environment.
 # TYPE go_info gauge
-go_info{version="go1.13.5"} 1
+go_info{version="go1.13.9"} 1
 # HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
 # TYPE go_memstats_alloc_bytes gauge
-go_memstats_alloc_bytes 1.8237952e+07
+go_memstats_alloc_bytes 2.3467592e+07
 # HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
 # TYPE go_memstats_alloc_bytes_total counter
-go_memstats_alloc_bytes_total 3.33350176e+08
+go_memstats_alloc_bytes_total 1.45168704e+08
 # HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
 # TYPE go_memstats_buck_hash_sys_bytes gauge
-go_memstats_buck_hash_sys_bytes 1.529673e+06
+go_memstats_buck_hash_sys_bytes 1.505517e+06
 # HELP go_memstats_frees_total Total number of frees.
 # TYPE go_memstats_frees_total counter
-go_memstats_frees_total 3.283928e+06
+go_memstats_frees_total 1.309793e+06
 # HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
 # TYPE go_memstats_gc_cpu_fraction gauge
-go_memstats_gc_cpu_fraction 1.274000941903703e-05
+go_memstats_gc_cpu_fraction 2.3727777291768234e-05
 # HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
 # TYPE go_memstats_gc_sys_bytes gauge
-go_memstats_gc_sys_bytes 2.410496e+06
+go_memstats_gc_sys_bytes 2.414592e+06
 # HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
 # TYPE go_memstats_heap_alloc_bytes gauge
-go_memstats_heap_alloc_bytes 1.8237952e+07
+go_memstats_heap_alloc_bytes 2.3467592e+07
 # HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
 # TYPE go_memstats_heap_idle_bytes gauge
-go_memstats_heap_idle_bytes 4.0173568e+07
+go_memstats_heap_idle_bytes 3.4668544e+07
 # HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
 # TYPE go_memstats_heap_inuse_bytes gauge
-go_memstats_heap_inuse_bytes 2.260992e+07
+go_memstats_heap_inuse_bytes 2.7492352e+07
 # HELP go_memstats_heap_objects Number of allocated objects.
 # TYPE go_memstats_heap_objects gauge
-go_memstats_heap_objects 110103
+go_memstats_heap_objects 158561
 # HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.
 # TYPE go_memstats_heap_released_bytes gauge
-go_memstats_heap_released_bytes 3.7994496e+07
+go_memstats_heap_released_bytes 3.3112064e+07
 # HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
 # TYPE go_memstats_heap_sys_bytes gauge
-go_memstats_heap_sys_bytes 6.2783488e+07
+go_memstats_heap_sys_bytes 6.2160896e+07
 # HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
 # TYPE go_memstats_last_gc_time_seconds gauge
-go_memstats_last_gc_time_seconds 1.5759680306936955e+09
+go_memstats_last_gc_time_seconds 1.5905476235089242e+09
 # HELP go_memstats_lookups_total Total number of pointer lookups.
 # TYPE go_memstats_lookups_total counter
 go_memstats_lookups_total 0
 # HELP go_memstats_mallocs_total Total number of mallocs.
 # TYPE go_memstats_mallocs_total counter
-go_memstats_mallocs_total 3.394031e+06
+go_memstats_mallocs_total 1.468354e+06
 # HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
 # TYPE go_memstats_mcache_inuse_bytes gauge
 go_memstats_mcache_inuse_bytes 6944
@@ -166,22 +225,22 @@ go_memstats_mcache_inuse_bytes 6944
 go_memstats_mcache_sys_bytes 16384
 # HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
 # TYPE go_memstats_mspan_inuse_bytes gauge
-go_memstats_mspan_inuse_bytes 308040
+go_memstats_mspan_inuse_bytes 367880
 # HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
 # TYPE go_memstats_mspan_sys_bytes gauge
-go_memstats_mspan_sys_bytes 376832
+go_memstats_mspan_sys_bytes 409600
 # HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
 # TYPE go_memstats_next_gc_bytes gauge
-go_memstats_next_gc_bytes 2.5503616e+07
+go_memstats_next_gc_bytes 3.0057168e+07
 # HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
 # TYPE go_memstats_other_sys_bytes gauge
-go_memstats_other_sys_bytes 844207
+go_memstats_other_sys_bytes 831499
 # HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
 # TYPE go_memstats_stack_inuse_bytes gauge
-go_memstats_stack_inuse_bytes 4.325376e+06
+go_memstats_stack_inuse_bytes 4.947968e+06
 # HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
 # TYPE go_memstats_stack_sys_bytes gauge
-go_memstats_stack_sys_bytes 4.325376e+06
+go_memstats_stack_sys_bytes 4.947968e+06
 # HELP go_memstats_sys_bytes Number of bytes obtained from system.
 # TYPE go_memstats_sys_bytes gauge
 go_memstats_sys_bytes 7.2286456e+07
@@ -193,7 +252,7 @@ go_threads 13
 job_controller_rate_limiter_use 0
 # HELP kubernetes_build_info [ALPHA] A metric with a constant '1' value labeled by major, minor, git version, git commit, git tree state, build date, Go version, and compiler from which Kubernetes was built, and platform on which it is running.
 # TYPE kubernetes_build_info gauge
-kubernetes_build_info{buildDate="2019-12-10T07:41:31Z",compiler="gc",gitCommit="9bf52c2aa69bd543badd268a465dc50318682a59",gitTreeState="clean",gitVersion="v1.18.0-alpha.0.1585+9bf52c2aa69bd5",goVersion="go1.13.5",major="1",minor="18+",platform="linux/amd64"} 1
+kubernetes_build_info{buildDate="2020-05-27T02:27:17Z",compiler="gc",gitCommit="4d8280acca782897dbf4439daa417f39af2466bd",gitTreeState="clean",gitVersion="v1.19.0-alpha.3.592+4d8280acca7828",goVersion="go1.13.9",major="1",minor="19+",platform="linux/amd64"} 1
 # HELP namespace_controller_rate_limiter_use [ALPHA] A metric measuring the saturation of the rate limiter for namespace_controller
 # TYPE namespace_controller_rate_limiter_use gauge
 namespace_controller_rate_limiter_use 0
@@ -220,7 +279,7 @@ persistentvolume_protection_controller_rate_limiter_use 0
 persistentvolumeclaim_protection_controller_rate_limiter_use 0
 # HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
 # TYPE process_cpu_seconds_total counter
-process_cpu_seconds_total 40.21
+process_cpu_seconds_total 11.97
 # HELP process_max_fds Maximum number of open file descriptors.
 # TYPE process_max_fds gauge
 process_max_fds 65535
@@ -229,13 +288,13 @@ process_max_fds 65535
 process_open_fds 15
 # HELP process_resident_memory_bytes Resident memory size in bytes.
 # TYPE process_resident_memory_bytes gauge
-process_resident_memory_bytes 5.9498496e+07
+process_resident_memory_bytes 6.6318336e+07
 # HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
 # TYPE process_start_time_seconds gauge
-process_start_time_seconds 1.57596373017e+09
+process_start_time_seconds 1.59054647787e+09
 # HELP process_virtual_memory_bytes Virtual memory size in bytes.
 # TYPE process_virtual_memory_bytes gauge
-process_virtual_memory_bytes 2.1467136e+08
+process_virtual_memory_bytes 2.208768e+08
 # HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.
 # TYPE process_virtual_memory_max_bytes gauge
 process_virtual_memory_max_bytes -1
@@ -269,84 +328,84 @@ rest_client_exec_plugin_certificate_rotation_age_count 0
 rest_client_exec_plugin_ttl_seconds +Inf
 # HELP rest_client_request_duration_seconds [ALPHA] Request latency in seconds. Broken down by verb and URL.
 # TYPE rest_client_request_duration_seconds histogram
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.001"} 1176
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.002"} 2794
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.004"} 9985
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.008"} 10764
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.016"} 10779
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.032"} 10781
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.064"} 10781
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.128"} 10781
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.256"} 10781
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.512"} 10781
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="+Inf"} 10781
-rest_client_request_duration_seconds_sum{url="https://localhost:6443/%7Bprefix%7D",verb="GET"} 27.69668413599987
-rest_client_request_duration_seconds_count{url="https://localhost:6443/%7Bprefix%7D",verb="GET"} 10781
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.001"} 10
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.002"} 308
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.004"} 2246
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.008"} 2735
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.016"} 2797
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.032"} 2803
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.064"} 2923
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.128"} 3016
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.256"} 3285
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="0.512"} 3300
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="GET",le="+Inf"} 3345
+rest_client_request_duration_seconds_sum{url="https://localhost:6443/%7Bprefix%7D",verb="GET"} 130.46945956799968
+rest_client_request_duration_seconds_count{url="https://localhost:6443/%7Bprefix%7D",verb="GET"} 3345
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.001"} 0
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.002"} 0
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.004"} 1
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.008"} 2
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.016"} 2
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.032"} 2
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.064"} 2
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.128"} 2
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.256"} 2
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.512"} 2
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="+Inf"} 2
-rest_client_request_duration_seconds_sum{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH"} 0.007902203
-rest_client_request_duration_seconds_count{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH"} 2
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.032"} 4
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.064"} 4
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.128"} 4
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.256"} 4
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="0.512"} 4
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH",le="+Inf"} 4
+rest_client_request_duration_seconds_sum{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH"} 0.05827765
+rest_client_request_duration_seconds_count{url="https://localhost:6443/%7Bprefix%7D",verb="PATCH"} 4
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.001"} 0
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.002"} 45
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.004"} 85
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.008"} 92
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.016"} 97
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.032"} 98
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.064"} 98
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.128"} 98
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.256"} 98
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.512"} 98
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="+Inf"} 98
-rest_client_request_duration_seconds_sum{url="https://localhost:6443/%7Bprefix%7D",verb="POST"} 0.28957497
-rest_client_request_duration_seconds_count{url="https://localhost:6443/%7Bprefix%7D",verb="POST"} 98
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.002"} 18
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.004"} 31
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.008"} 40
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.016"} 50
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.032"} 53
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.064"} 68
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.128"} 73
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.256"} 79
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="0.512"} 82
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="POST",le="+Inf"} 82
+rest_client_request_duration_seconds_sum{url="https://localhost:6443/%7Bprefix%7D",verb="POST"} 3.565213543
+rest_client_request_duration_seconds_count{url="https://localhost:6443/%7Bprefix%7D",verb="POST"} 82
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.001"} 0
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.002"} 2
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.004"} 26
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.008"} 37
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.016"} 47
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.032"} 47
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.064"} 47
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.128"} 47
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.256"} 47
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.512"} 47
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="+Inf"} 47
-rest_client_request_duration_seconds_sum{url="https://localhost:6443/%7Bprefix%7D",verb="PUT"} 0.237472726
-rest_client_request_duration_seconds_count{url="https://localhost:6443/%7Bprefix%7D",verb="PUT"} 47
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.001"} 7
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.002"} 288
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.004"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.008"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.016"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.032"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.064"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.128"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.256"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.512"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="+Inf"} 295
-rest_client_request_duration_seconds_sum{url="https://localhost:6443/api?timeout=32s",verb="GET"} 0.39037759599999977
-rest_client_request_duration_seconds_count{url="https://localhost:6443/api?timeout=32s",verb="GET"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.001"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.002"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.004"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.008"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.016"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.032"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.064"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.128"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.256"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.512"} 295
-rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="+Inf"} 295
-rest_client_request_duration_seconds_sum{url="https://localhost:6443/apis?timeout=32s",verb="GET"} 0.20923331699999986
-rest_client_request_duration_seconds_count{url="https://localhost:6443/apis?timeout=32s",verb="GET"} 295
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.002"} 1
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.004"} 29
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.008"} 43
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.016"} 46
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.032"} 48
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.064"} 52
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.128"} 55
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.256"} 55
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="0.512"} 55
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/%7Bprefix%7D",verb="PUT",le="+Inf"} 55
+rest_client_request_duration_seconds_sum{url="https://localhost:6443/%7Bprefix%7D",verb="PUT"} 0.7371550490000001
+rest_client_request_duration_seconds_count{url="https://localhost:6443/%7Bprefix%7D",verb="PUT"} 55
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.001"} 2
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.002"} 85
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.004"} 85
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.008"} 85
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.016"} 86
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.032"} 86
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.064"} 87
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.128"} 89
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.256"} 89
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="0.512"} 89
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/api?timeout=32s",verb="GET",le="+Inf"} 89
+rest_client_request_duration_seconds_sum{url="https://localhost:6443/api?timeout=32s",verb="GET"} 0.37710367599999994
+rest_client_request_duration_seconds_count{url="https://localhost:6443/api?timeout=32s",verb="GET"} 89
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.001"} 83
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.002"} 87
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.004"} 87
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.008"} 87
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.016"} 88
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.032"} 88
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.064"} 89
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.128"} 89
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.256"} 89
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="0.512"} 89
+rest_client_request_duration_seconds_bucket{url="https://localhost:6443/apis?timeout=32s",verb="GET",le="+Inf"} 89
+rest_client_request_duration_seconds_sum{url="https://localhost:6443/apis?timeout=32s",verb="GET"} 0.12629591000000007
+rest_client_request_duration_seconds_count{url="https://localhost:6443/apis?timeout=32s",verb="GET"} 89
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/healthz?timeout=32s",verb="GET",le="0.001"} 0
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/healthz?timeout=32s",verb="GET",le="0.002"} 0
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/healthz?timeout=32s",verb="GET",le="0.004"} 1
@@ -358,15 +417,15 @@ rest_client_request_duration_seconds_bucket{url="https://localhost:6443/healthz?
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/healthz?timeout=32s",verb="GET",le="0.256"} 1
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/healthz?timeout=32s",verb="GET",le="0.512"} 1
 rest_client_request_duration_seconds_bucket{url="https://localhost:6443/healthz?timeout=32s",verb="GET",le="+Inf"} 1
-rest_client_request_duration_seconds_sum{url="https://localhost:6443/healthz?timeout=32s",verb="GET"} 0.003805851
+rest_client_request_duration_seconds_sum{url="https://localhost:6443/healthz?timeout=32s",verb="GET"} 0.002007534
 rest_client_request_duration_seconds_count{url="https://localhost:6443/healthz?timeout=32s",verb="GET"} 1
 # HELP rest_client_requests_total [ALPHA] Number of HTTP requests, partitioned by status code, method, and host.
 # TYPE rest_client_requests_total counter
-rest_client_requests_total{code="200",host="localhost:6443",method="GET"} 11844
-rest_client_requests_total{code="200",host="localhost:6443",method="PATCH"} 2
-rest_client_requests_total{code="200",host="localhost:6443",method="PUT"} 45
-rest_client_requests_total{code="201",host="localhost:6443",method="POST"} 98
-rest_client_requests_total{code="404",host="localhost:6443",method="GET"} 25
+rest_client_requests_total{code="200",host="localhost:6443",method="GET"} 3652
+rest_client_requests_total{code="200",host="localhost:6443",method="PATCH"} 4
+rest_client_requests_total{code="200",host="localhost:6443",method="PUT"} 53
+rest_client_requests_total{code="201",host="localhost:6443",method="POST"} 82
+rest_client_requests_total{code="404",host="localhost:6443",method="GET"} 26
 rest_client_requests_total{code="409",host="localhost:6443",method="PUT"} 2
 # HELP service_controller_rate_limiter_use [ALPHA] A metric measuring the saturation of the rate limiter for service_controller
 # TYPE service_controller_rate_limiter_use gauge
@@ -380,22 +439,24 @@ serviceaccount_tokens_controller_rate_limiter_use 0
 # HELP workqueue_adds_total [ALPHA] Total number of adds handled by workqueue
 # TYPE workqueue_adds_total counter
 workqueue_adds_total{name="ClusterRoleAggregator"} 16
-workqueue_adds_total{name="DynamicCABundle-serving-cert"} 73
-workqueue_adds_total{name="DynamicServingCertificateController"} 73
-workqueue_adds_total{name="certificate"} 0
+workqueue_adds_total{name="DynamicCABundle-csr-controller"} 88
+workqueue_adds_total{name="DynamicCABundle-serving-cert"} 22
+workqueue_adds_total{name="DynamicServingCertificateController"} 22
+workqueue_adds_total{name="certificate"} 15
 workqueue_adds_total{name="claims"} 0
 workqueue_adds_total{name="daemonset"} 0
 workqueue_adds_total{name="deployment"} 10
 workqueue_adds_total{name="disruption"} 0
 workqueue_adds_total{name="disruption_recheck"} 0
 workqueue_adds_total{name="endpoint"} 6
+workqueue_adds_total{name="endpoint_slice"} 9
 workqueue_adds_total{name="garbage_collector_attempt_to_delete"} 0
 workqueue_adds_total{name="garbage_collector_attempt_to_orphan"} 0
-workqueue_adds_total{name="garbage_collector_graph_changes"} 822
+workqueue_adds_total{name="garbage_collector_graph_changes"} 431
 workqueue_adds_total{name="horizontalpodautoscaler"} 0
 workqueue_adds_total{name="job"} 0
 workqueue_adds_total{name="namespace"} 0
-workqueue_adds_total{name="node_lifecycle_controller"} 18
+workqueue_adds_total{name="node_lifecycle_controller"} 9
 workqueue_adds_total{name="node_lifecycle_controller_pods"} 1
 workqueue_adds_total{name="noexec_taint_node"} 1
 workqueue_adds_total{name="noexec_taint_pod"} 2
@@ -403,22 +464,23 @@ workqueue_adds_total{name="orphaned_pods_nodes"} 0
 workqueue_adds_total{name="pvcprotection"} 0
 workqueue_adds_total{name="pvcs"} 0
 workqueue_adds_total{name="pvprotection"} 0
-workqueue_adds_total{name="replicaset"} 8
+workqueue_adds_total{name="replicaset"} 10
 workqueue_adds_total{name="replicationmanager"} 0
-workqueue_adds_total{name="resource_quota_controller_resource_changes"} 22
+workqueue_adds_total{name="resource_quota_controller_resource_changes"} 0
 workqueue_adds_total{name="resourcequota_primary"} 0
 workqueue_adds_total{name="resourcequota_priority"} 0
 workqueue_adds_total{name="service"} 0
 workqueue_adds_total{name="serviceaccount"} 4
-workqueue_adds_total{name="serviceaccount_tokens_secret"} 30
-workqueue_adds_total{name="serviceaccount_tokens_service"} 60
+workqueue_adds_total{name="serviceaccount_tokens_secret"} 31
+workqueue_adds_total{name="serviceaccount_tokens_service"} 62
 workqueue_adds_total{name="statefulset"} 0
-workqueue_adds_total{name="ttlcontroller"} 18
+workqueue_adds_total{name="ttlcontroller"} 9
 workqueue_adds_total{name="volume_expand"} 0
 workqueue_adds_total{name="volumes"} 0
 # HELP workqueue_depth [ALPHA] Current depth of workqueue
 # TYPE workqueue_depth gauge
 workqueue_depth{name="ClusterRoleAggregator"} 0
+workqueue_depth{name="DynamicCABundle-csr-controller"} 0
 workqueue_depth{name="DynamicCABundle-serving-cert"} 0
 workqueue_depth{name="DynamicServingCertificateController"} 0
 workqueue_depth{name="certificate"} 0
@@ -428,6 +490,7 @@ workqueue_depth{name="deployment"} 0
 workqueue_depth{name="disruption"} 0
 workqueue_depth{name="disruption_recheck"} 0
 workqueue_depth{name="endpoint"} 0
+workqueue_depth{name="endpoint_slice"} 0
 workqueue_depth{name="garbage_collector_attempt_to_delete"} 0
 workqueue_depth{name="garbage_collector_attempt_to_orphan"} 0
 workqueue_depth{name="garbage_collector_graph_changes"} 0
@@ -458,6 +521,7 @@ workqueue_depth{name="volumes"} 0
 # HELP workqueue_longest_running_processor_seconds [ALPHA] How many seconds has the longest running processor for workqueue been running.
 # TYPE workqueue_longest_running_processor_seconds gauge
 workqueue_longest_running_processor_seconds{name="ClusterRoleAggregator"} 0
+workqueue_longest_running_processor_seconds{name="DynamicCABundle-csr-controller"} 0
 workqueue_longest_running_processor_seconds{name="DynamicCABundle-serving-cert"} 0
 workqueue_longest_running_processor_seconds{name="DynamicServingCertificateController"} 0
 workqueue_longest_running_processor_seconds{name="certificate"} 0
@@ -467,6 +531,7 @@ workqueue_longest_running_processor_seconds{name="deployment"} 0
 workqueue_longest_running_processor_seconds{name="disruption"} 0
 workqueue_longest_running_processor_seconds{name="disruption_recheck"} 0
 workqueue_longest_running_processor_seconds{name="endpoint"} 0
+workqueue_longest_running_processor_seconds{name="endpoint_slice"} 0
 workqueue_longest_running_processor_seconds{name="garbage_collector_attempt_to_delete"} 0
 workqueue_longest_running_processor_seconds{name="garbage_collector_attempt_to_orphan"} 0
 workqueue_longest_running_processor_seconds{name="garbage_collector_graph_changes"} 0
@@ -499,55 +564,68 @@ workqueue_longest_running_processor_seconds{name="volumes"} 0
 workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="9.999999999999999e-06"} 5
-workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="9.999999999999999e-05"} 8
-workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="0.001"} 8
+workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="9.999999999999999e-06"} 2
+workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="9.999999999999999e-05"} 5
+workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="0.001"} 9
 workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="0.01"} 13
 workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="0.1"} 16
 workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="1"} 16
 workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="10"} 16
 workqueue_queue_duration_seconds_bucket{name="ClusterRoleAggregator",le="+Inf"} 16
-workqueue_queue_duration_seconds_sum{name="ClusterRoleAggregator"} 0.13212465000000007
+workqueue_queue_duration_seconds_sum{name="ClusterRoleAggregator"} 0.12216910000000002
 workqueue_queue_duration_seconds_count{name="ClusterRoleAggregator"} 16
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="1e-08"} 0
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="1e-07"} 0
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="1e-06"} 0
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="9.999999999999999e-06"} 70
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="9.999999999999999e-05"} 88
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="0.001"} 88
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="0.01"} 88
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="0.1"} 88
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="1"} 88
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="10"} 88
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="+Inf"} 88
+workqueue_queue_duration_seconds_sum{name="DynamicCABundle-csr-controller"} 0.0007193859999999997
+workqueue_queue_duration_seconds_count{name="DynamicCABundle-csr-controller"} 88
 workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="9.999999999999999e-06"} 35
-workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="9.999999999999999e-05"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.001"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.01"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.1"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="1"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="10"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="+Inf"} 73
-workqueue_queue_duration_seconds_sum{name="DynamicCABundle-serving-cert"} 0.0009687839999999999
-workqueue_queue_duration_seconds_count{name="DynamicCABundle-serving-cert"} 73
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="9.999999999999999e-06"} 14
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="9.999999999999999e-05"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.001"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.01"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.1"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="1"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="10"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="+Inf"} 22
+workqueue_queue_duration_seconds_sum{name="DynamicCABundle-serving-cert"} 0.00023828599999999996
+workqueue_queue_duration_seconds_count{name="DynamicCABundle-serving-cert"} 22
 workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="9.999999999999999e-06"} 33
-workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="9.999999999999999e-05"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.001"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.01"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.1"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="1"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="10"} 73
-workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="+Inf"} 73
-workqueue_queue_duration_seconds_sum{name="DynamicServingCertificateController"} 0.0007306780000000002
-workqueue_queue_duration_seconds_count{name="DynamicServingCertificateController"} 73
+workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="9.999999999999999e-06"} 13
+workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="9.999999999999999e-05"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.001"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.01"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.1"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="1"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="10"} 22
+workqueue_queue_duration_seconds_bucket{name="DynamicServingCertificateController",le="+Inf"} 22
+workqueue_queue_duration_seconds_sum{name="DynamicServingCertificateController"} 0.00021118100000000004
+workqueue_queue_duration_seconds_count{name="DynamicServingCertificateController"} 22
 workqueue_queue_duration_seconds_bucket{name="certificate",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="certificate",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="certificate",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="certificate",le="9.999999999999999e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="certificate",le="9.999999999999999e-05"} 0
-workqueue_queue_duration_seconds_bucket{name="certificate",le="0.001"} 0
-workqueue_queue_duration_seconds_bucket{name="certificate",le="0.01"} 0
-workqueue_queue_duration_seconds_bucket{name="certificate",le="0.1"} 0
-workqueue_queue_duration_seconds_bucket{name="certificate",le="1"} 0
-workqueue_queue_duration_seconds_bucket{name="certificate",le="10"} 0
-workqueue_queue_duration_seconds_bucket{name="certificate",le="+Inf"} 0
-workqueue_queue_duration_seconds_sum{name="certificate"} 0
-workqueue_queue_duration_seconds_count{name="certificate"} 0
+workqueue_queue_duration_seconds_bucket{name="certificate",le="9.999999999999999e-06"} 8
+workqueue_queue_duration_seconds_bucket{name="certificate",le="9.999999999999999e-05"} 10
+workqueue_queue_duration_seconds_bucket{name="certificate",le="0.001"} 10
+workqueue_queue_duration_seconds_bucket{name="certificate",le="0.01"} 10
+workqueue_queue_duration_seconds_bucket{name="certificate",le="0.1"} 15
+workqueue_queue_duration_seconds_bucket{name="certificate",le="1"} 15
+workqueue_queue_duration_seconds_bucket{name="certificate",le="10"} 15
+workqueue_queue_duration_seconds_bucket{name="certificate",le="+Inf"} 15
+workqueue_queue_duration_seconds_sum{name="certificate"} 0.406493313
+workqueue_queue_duration_seconds_count{name="certificate"} 15
 workqueue_queue_duration_seconds_bucket{name="claims",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="claims",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="claims",le="1e-06"} 0
@@ -577,15 +655,15 @@ workqueue_queue_duration_seconds_count{name="daemonset"} 0
 workqueue_queue_duration_seconds_bucket{name="deployment",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="deployment",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="deployment",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="deployment",le="9.999999999999999e-06"} 5
-workqueue_queue_duration_seconds_bucket{name="deployment",le="9.999999999999999e-05"} 7
+workqueue_queue_duration_seconds_bucket{name="deployment",le="9.999999999999999e-06"} 4
+workqueue_queue_duration_seconds_bucket{name="deployment",le="9.999999999999999e-05"} 6
 workqueue_queue_duration_seconds_bucket{name="deployment",le="0.001"} 8
-workqueue_queue_duration_seconds_bucket{name="deployment",le="0.01"} 9
-workqueue_queue_duration_seconds_bucket{name="deployment",le="0.1"} 9
+workqueue_queue_duration_seconds_bucket{name="deployment",le="0.01"} 8
+workqueue_queue_duration_seconds_bucket{name="deployment",le="0.1"} 10
 workqueue_queue_duration_seconds_bucket{name="deployment",le="1"} 10
 workqueue_queue_duration_seconds_bucket{name="deployment",le="10"} 10
 workqueue_queue_duration_seconds_bucket{name="deployment",le="+Inf"} 10
-workqueue_queue_duration_seconds_sum{name="deployment"} 0.39921240000000013
+workqueue_queue_duration_seconds_sum{name="deployment"} 0.09952687499999999
 workqueue_queue_duration_seconds_count{name="deployment"} 10
 workqueue_queue_duration_seconds_bucket{name="disruption",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="disruption",le="1e-07"} 0
@@ -620,12 +698,25 @@ workqueue_queue_duration_seconds_bucket{name="endpoint",le="9.999999999999999e-0
 workqueue_queue_duration_seconds_bucket{name="endpoint",le="9.999999999999999e-05"} 4
 workqueue_queue_duration_seconds_bucket{name="endpoint",le="0.001"} 4
 workqueue_queue_duration_seconds_bucket{name="endpoint",le="0.01"} 4
-workqueue_queue_duration_seconds_bucket{name="endpoint",le="0.1"} 4
+workqueue_queue_duration_seconds_bucket{name="endpoint",le="0.1"} 6
 workqueue_queue_duration_seconds_bucket{name="endpoint",le="1"} 6
 workqueue_queue_duration_seconds_bucket{name="endpoint",le="10"} 6
 workqueue_queue_duration_seconds_bucket{name="endpoint",le="+Inf"} 6
-workqueue_queue_duration_seconds_sum{name="endpoint"} 0.26347012799999997
+workqueue_queue_duration_seconds_sum{name="endpoint"} 0.081886548
 workqueue_queue_duration_seconds_count{name="endpoint"} 6
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="1e-08"} 0
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="1e-07"} 0
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="1e-06"} 0
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="9.999999999999999e-06"} 4
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="9.999999999999999e-05"} 7
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="0.001"} 7
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="0.01"} 7
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="0.1"} 9
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="1"} 9
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="10"} 9
+workqueue_queue_duration_seconds_bucket{name="endpoint_slice",le="+Inf"} 9
+workqueue_queue_duration_seconds_sum{name="endpoint_slice"} 0.18185906499999996
+workqueue_queue_duration_seconds_count{name="endpoint_slice"} 9
 workqueue_queue_duration_seconds_bucket{name="garbage_collector_attempt_to_delete",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="garbage_collector_attempt_to_delete",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="garbage_collector_attempt_to_delete",le="1e-06"} 0
@@ -654,17 +745,17 @@ workqueue_queue_duration_seconds_sum{name="garbage_collector_attempt_to_orphan"}
 workqueue_queue_duration_seconds_count{name="garbage_collector_attempt_to_orphan"} 0
 workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1e-07"} 0
-workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1e-06"} 6
-workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="9.999999999999999e-06"} 644
-workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="9.999999999999999e-05"} 744
-workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.001"} 770
-workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.01"} 772
-workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.1"} 822
-workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1"} 822
-workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="10"} 822
-workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="+Inf"} 822
-workqueue_queue_duration_seconds_sum{name="garbage_collector_graph_changes"} 0.7597470660000009
-workqueue_queue_duration_seconds_count{name="garbage_collector_graph_changes"} 822
+workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1e-06"} 7
+workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="9.999999999999999e-06"} 261
+workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="9.999999999999999e-05"} 316
+workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.001"} 372
+workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.01"} 372
+workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.1"} 372
+workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1"} 431
+workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="10"} 431
+workqueue_queue_duration_seconds_bucket{name="garbage_collector_graph_changes",le="+Inf"} 431
+workqueue_queue_duration_seconds_sum{name="garbage_collector_graph_changes"} 51.85831100799999
+workqueue_queue_duration_seconds_count{name="garbage_collector_graph_changes"} 431
 workqueue_queue_duration_seconds_bucket{name="horizontalpodautoscaler",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="horizontalpodautoscaler",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="horizontalpodautoscaler",le="1e-06"} 0
@@ -707,16 +798,16 @@ workqueue_queue_duration_seconds_count{name="namespace"} 0
 workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="9.999999999999999e-06"} 16
-workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="9.999999999999999e-05"} 16
-workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="0.001"} 17
-workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="0.01"} 17
-workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="0.1"} 18
-workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="1"} 18
-workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="10"} 18
-workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="+Inf"} 18
-workqueue_queue_duration_seconds_sum{name="node_lifecycle_controller"} 0.019843781999999997
-workqueue_queue_duration_seconds_count{name="node_lifecycle_controller"} 18
+workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="9.999999999999999e-06"} 6
+workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="9.999999999999999e-05"} 7
+workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="0.001"} 7
+workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="0.01"} 8
+workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="0.1"} 9
+workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="1"} 9
+workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="10"} 9
+workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller",le="+Inf"} 9
+workqueue_queue_duration_seconds_sum{name="node_lifecycle_controller"} 0.017338814999999997
+workqueue_queue_duration_seconds_count{name="node_lifecycle_controller"} 9
 workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="1e-06"} 0
@@ -728,20 +819,20 @@ workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller_pods",le
 workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="1"} 1
 workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="10"} 1
 workqueue_queue_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="+Inf"} 1
-workqueue_queue_duration_seconds_sum{name="node_lifecycle_controller_pods"} 5.2051e-05
+workqueue_queue_duration_seconds_sum{name="node_lifecycle_controller_pods"} 5.2419e-05
 workqueue_queue_duration_seconds_count{name="node_lifecycle_controller_pods"} 1
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="9.999999999999999e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="9.999999999999999e-05"} 0
-workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="0.001"} 0
-workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="0.01"} 0
+workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="9.999999999999999e-06"} 1
+workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="9.999999999999999e-05"} 1
+workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="0.001"} 1
+workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="0.01"} 1
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="0.1"} 1
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="1"} 1
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="10"} 1
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_node",le="+Inf"} 1
-workqueue_queue_duration_seconds_sum{name="noexec_taint_node"} 0.019739396
+workqueue_queue_duration_seconds_sum{name="noexec_taint_node"} 2.31e-06
 workqueue_queue_duration_seconds_count{name="noexec_taint_node"} 1
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_pod",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_pod",le="1e-07"} 0
@@ -754,7 +845,7 @@ workqueue_queue_duration_seconds_bucket{name="noexec_taint_pod",le="0.1"} 2
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_pod",le="1"} 2
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_pod",le="10"} 2
 workqueue_queue_duration_seconds_bucket{name="noexec_taint_pod",le="+Inf"} 2
-workqueue_queue_duration_seconds_sum{name="noexec_taint_pod"} 8.769e-06
+workqueue_queue_duration_seconds_sum{name="noexec_taint_pod"} 5.934e-06
 workqueue_queue_duration_seconds_count{name="noexec_taint_pod"} 2
 workqueue_queue_duration_seconds_bucket{name="orphaned_pods_nodes",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="orphaned_pods_nodes",le="1e-07"} 0
@@ -811,16 +902,16 @@ workqueue_queue_duration_seconds_count{name="pvprotection"} 0
 workqueue_queue_duration_seconds_bucket{name="replicaset",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="replicaset",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="replicaset",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="replicaset",le="9.999999999999999e-06"} 3
-workqueue_queue_duration_seconds_bucket{name="replicaset",le="9.999999999999999e-05"} 5
-workqueue_queue_duration_seconds_bucket{name="replicaset",le="0.001"} 6
-workqueue_queue_duration_seconds_bucket{name="replicaset",le="0.01"} 7
-workqueue_queue_duration_seconds_bucket{name="replicaset",le="0.1"} 8
-workqueue_queue_duration_seconds_bucket{name="replicaset",le="1"} 8
-workqueue_queue_duration_seconds_bucket{name="replicaset",le="10"} 8
-workqueue_queue_duration_seconds_bucket{name="replicaset",le="+Inf"} 8
-workqueue_queue_duration_seconds_sum{name="replicaset"} 0.019803594
-workqueue_queue_duration_seconds_count{name="replicaset"} 8
+workqueue_queue_duration_seconds_bucket{name="replicaset",le="9.999999999999999e-06"} 2
+workqueue_queue_duration_seconds_bucket{name="replicaset",le="9.999999999999999e-05"} 7
+workqueue_queue_duration_seconds_bucket{name="replicaset",le="0.001"} 9
+workqueue_queue_duration_seconds_bucket{name="replicaset",le="0.01"} 10
+workqueue_queue_duration_seconds_bucket{name="replicaset",le="0.1"} 10
+workqueue_queue_duration_seconds_bucket{name="replicaset",le="1"} 10
+workqueue_queue_duration_seconds_bucket{name="replicaset",le="10"} 10
+workqueue_queue_duration_seconds_bucket{name="replicaset",le="+Inf"} 10
+workqueue_queue_duration_seconds_sum{name="replicaset"} 0.007318925
+workqueue_queue_duration_seconds_count{name="replicaset"} 10
 workqueue_queue_duration_seconds_bucket{name="replicationmanager",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="replicationmanager",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="replicationmanager",le="1e-06"} 0
@@ -836,17 +927,17 @@ workqueue_queue_duration_seconds_sum{name="replicationmanager"} 0
 workqueue_queue_duration_seconds_count{name="replicationmanager"} 0
 workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1e-07"} 0
-workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1e-06"} 1
-workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="9.999999999999999e-06"} 18
-workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="9.999999999999999e-05"} 22
-workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.001"} 22
-workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.01"} 22
-workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.1"} 22
-workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1"} 22
-workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="10"} 22
-workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="+Inf"} 22
-workqueue_queue_duration_seconds_sum{name="resource_quota_controller_resource_changes"} 0.00013282000000000002
-workqueue_queue_duration_seconds_count{name="resource_quota_controller_resource_changes"} 22
+workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1e-06"} 0
+workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="9.999999999999999e-06"} 0
+workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="9.999999999999999e-05"} 0
+workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.001"} 0
+workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.01"} 0
+workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.1"} 0
+workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1"} 0
+workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="10"} 0
+workqueue_queue_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="+Inf"} 0
+workqueue_queue_duration_seconds_sum{name="resource_quota_controller_resource_changes"} 0
+workqueue_queue_duration_seconds_count{name="resource_quota_controller_resource_changes"} 0
 workqueue_queue_duration_seconds_bucket{name="resourcequota_primary",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="resourcequota_primary",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="resourcequota_primary",le="1e-06"} 0
@@ -893,38 +984,38 @@ workqueue_queue_duration_seconds_bucket{name="serviceaccount",le="9.999999999999
 workqueue_queue_duration_seconds_bucket{name="serviceaccount",le="9.999999999999999e-05"} 0
 workqueue_queue_duration_seconds_bucket{name="serviceaccount",le="0.001"} 0
 workqueue_queue_duration_seconds_bucket{name="serviceaccount",le="0.01"} 0
-workqueue_queue_duration_seconds_bucket{name="serviceaccount",le="0.1"} 2
+workqueue_queue_duration_seconds_bucket{name="serviceaccount",le="0.1"} 1
 workqueue_queue_duration_seconds_bucket{name="serviceaccount",le="1"} 4
 workqueue_queue_duration_seconds_bucket{name="serviceaccount",le="10"} 4
 workqueue_queue_duration_seconds_bucket{name="serviceaccount",le="+Inf"} 4
-workqueue_queue_duration_seconds_sum{name="serviceaccount"} 0.367502657
+workqueue_queue_duration_seconds_sum{name="serviceaccount"} 0.662584345
 workqueue_queue_duration_seconds_count{name="serviceaccount"} 4
 workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="9.999999999999999e-06"} 28
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="9.999999999999999e-05"} 30
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.001"} 30
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.01"} 30
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.1"} 30
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="1"} 30
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="10"} 30
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="+Inf"} 30
-workqueue_queue_duration_seconds_sum{name="serviceaccount_tokens_secret"} 0.00015452100000000005
-workqueue_queue_duration_seconds_count{name="serviceaccount_tokens_secret"} 30
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="9.999999999999999e-06"} 27
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="9.999999999999999e-05"} 31
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.001"} 31
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.01"} 31
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.1"} 31
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="1"} 31
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="10"} 31
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="+Inf"} 31
+workqueue_queue_duration_seconds_sum{name="serviceaccount_tokens_secret"} 0.00016583800000000002
+workqueue_queue_duration_seconds_count{name="serviceaccount_tokens_secret"} 31
 workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="9.999999999999999e-06"} 37
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="9.999999999999999e-05"} 48
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.001"} 58
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.01"} 58
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.1"} 60
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="1"} 60
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="10"} 60
-workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="+Inf"} 60
-workqueue_queue_duration_seconds_sum{name="serviceaccount_tokens_service"} 0.187856308
-workqueue_queue_duration_seconds_count{name="serviceaccount_tokens_service"} 60
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="9.999999999999999e-06"} 28
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="9.999999999999999e-05"} 35
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.001"} 45
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.01"} 45
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.1"} 58
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="1"} 62
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="10"} 62
+workqueue_queue_duration_seconds_bucket{name="serviceaccount_tokens_service",le="+Inf"} 62
+workqueue_queue_duration_seconds_sum{name="serviceaccount_tokens_service"} 1.366210667999999
+workqueue_queue_duration_seconds_count{name="serviceaccount_tokens_service"} 62
 workqueue_queue_duration_seconds_bucket{name="statefulset",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="statefulset",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="statefulset",le="1e-06"} 0
@@ -941,16 +1032,16 @@ workqueue_queue_duration_seconds_count{name="statefulset"} 0
 workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="1e-06"} 0
-workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="9.999999999999999e-06"} 16
-workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="9.999999999999999e-05"} 17
-workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="0.001"} 17
-workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="0.01"} 17
-workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="0.1"} 18
-workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="1"} 18
-workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="10"} 18
-workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="+Inf"} 18
-workqueue_queue_duration_seconds_sum{name="ttlcontroller"} 0.016422238000000002
-workqueue_queue_duration_seconds_count{name="ttlcontroller"} 18
+workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="9.999999999999999e-06"} 4
+workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="9.999999999999999e-05"} 9
+workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="0.001"} 9
+workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="0.01"} 9
+workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="0.1"} 9
+workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="1"} 9
+workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="10"} 9
+workqueue_queue_duration_seconds_bucket{name="ttlcontroller",le="+Inf"} 9
+workqueue_queue_duration_seconds_sum{name="ttlcontroller"} 0.00010911699999999999
+workqueue_queue_duration_seconds_count{name="ttlcontroller"} 9
 workqueue_queue_duration_seconds_bucket{name="volume_expand",le="1e-08"} 0
 workqueue_queue_duration_seconds_bucket{name="volume_expand",le="1e-07"} 0
 workqueue_queue_duration_seconds_bucket{name="volume_expand",le="1e-06"} 0
@@ -980,6 +1071,7 @@ workqueue_queue_duration_seconds_count{name="volumes"} 0
 # HELP workqueue_retries_total [ALPHA] Total number of retries handled by workqueue
 # TYPE workqueue_retries_total counter
 workqueue_retries_total{name="ClusterRoleAggregator"} 1
+workqueue_retries_total{name="DynamicCABundle-csr-controller"} 0
 workqueue_retries_total{name="DynamicCABundle-serving-cert"} 0
 workqueue_retries_total{name="DynamicServingCertificateController"} 0
 workqueue_retries_total{name="certificate"} 0
@@ -988,6 +1080,7 @@ workqueue_retries_total{name="deployment"} 5
 workqueue_retries_total{name="disruption"} 0
 workqueue_retries_total{name="disruption_recheck"} 0
 workqueue_retries_total{name="endpoint"} 4
+workqueue_retries_total{name="endpoint_slice"} 8
 workqueue_retries_total{name="garbage_collector_attempt_to_delete"} 0
 workqueue_retries_total{name="garbage_collector_attempt_to_orphan"} 0
 workqueue_retries_total{name="garbage_collector_graph_changes"} 0
@@ -1014,6 +1107,7 @@ workqueue_retries_total{name="volume_expand"} 0
 # HELP workqueue_unfinished_work_seconds [ALPHA] How many seconds of work has done that is in progress and hasn't been observed by work_duration. Large values indicate stuck threads. One can deduce the number of stuck threads by observing the rate at which this increases.
 # TYPE workqueue_unfinished_work_seconds gauge
 workqueue_unfinished_work_seconds{name="ClusterRoleAggregator"} 0
+workqueue_unfinished_work_seconds{name="DynamicCABundle-csr-controller"} 0
 workqueue_unfinished_work_seconds{name="DynamicCABundle-serving-cert"} 0
 workqueue_unfinished_work_seconds{name="DynamicServingCertificateController"} 0
 workqueue_unfinished_work_seconds{name="certificate"} 0
@@ -1023,6 +1117,7 @@ workqueue_unfinished_work_seconds{name="deployment"} 0
 workqueue_unfinished_work_seconds{name="disruption"} 0
 workqueue_unfinished_work_seconds{name="disruption_recheck"} 0
 workqueue_unfinished_work_seconds{name="endpoint"} 0
+workqueue_unfinished_work_seconds{name="endpoint_slice"} 0
 workqueue_unfinished_work_seconds{name="garbage_collector_attempt_to_delete"} 0
 workqueue_unfinished_work_seconds{name="garbage_collector_attempt_to_orphan"} 0
 workqueue_unfinished_work_seconds{name="garbage_collector_graph_changes"} 0
@@ -1058,52 +1153,65 @@ workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="1e-06"} 
 workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="9.999999999999999e-06"} 0
 workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="9.999999999999999e-05"} 1
 workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="0.001"} 9
-workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="0.01"} 16
-workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="0.1"} 16
+workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="0.01"} 13
+workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="0.1"} 13
 workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="1"} 16
 workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="10"} 16
 workqueue_work_duration_seconds_bucket{name="ClusterRoleAggregator",le="+Inf"} 16
-workqueue_work_duration_seconds_sum{name="ClusterRoleAggregator"} 0.04206885600000001
+workqueue_work_duration_seconds_sum{name="ClusterRoleAggregator"} 0.339484338
 workqueue_work_duration_seconds_count{name="ClusterRoleAggregator"} 16
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="1e-08"} 0
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="1e-07"} 0
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="1e-06"} 0
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="9.999999999999999e-06"} 0
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="9.999999999999999e-05"} 0
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="0.001"} 88
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="0.01"} 88
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="0.1"} 88
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="1"} 88
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="10"} 88
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-csr-controller",le="+Inf"} 88
+workqueue_work_duration_seconds_sum{name="DynamicCABundle-csr-controller"} 0.022875035
+workqueue_work_duration_seconds_count{name="DynamicCABundle-csr-controller"} 88
 workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="1e-06"} 0
 workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="9.999999999999999e-06"} 0
 workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="9.999999999999999e-05"} 0
-workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.001"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.01"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.1"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="1"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="10"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="+Inf"} 73
-workqueue_work_duration_seconds_sum{name="DynamicCABundle-serving-cert"} 0.021666837
-workqueue_work_duration_seconds_count{name="DynamicCABundle-serving-cert"} 73
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.001"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.01"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="0.1"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="1"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="10"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicCABundle-serving-cert",le="+Inf"} 22
+workqueue_work_duration_seconds_sum{name="DynamicCABundle-serving-cert"} 0.006105605
+workqueue_work_duration_seconds_count{name="DynamicCABundle-serving-cert"} 22
 workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="1e-06"} 0
-workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="9.999999999999999e-06"} 58
-workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="9.999999999999999e-05"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.001"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.01"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.1"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="1"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="10"} 73
-workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="+Inf"} 73
-workqueue_work_duration_seconds_sum{name="DynamicServingCertificateController"} 0.0006484819999999999
-workqueue_work_duration_seconds_count{name="DynamicServingCertificateController"} 73
+workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="9.999999999999999e-06"} 20
+workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="9.999999999999999e-05"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.001"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.01"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="0.1"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="1"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="10"} 22
+workqueue_work_duration_seconds_bucket{name="DynamicServingCertificateController",le="+Inf"} 22
+workqueue_work_duration_seconds_sum{name="DynamicServingCertificateController"} 0.000174943
+workqueue_work_duration_seconds_count{name="DynamicServingCertificateController"} 22
 workqueue_work_duration_seconds_bucket{name="certificate",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="certificate",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="certificate",le="1e-06"} 0
-workqueue_work_duration_seconds_bucket{name="certificate",le="9.999999999999999e-06"} 0
-workqueue_work_duration_seconds_bucket{name="certificate",le="9.999999999999999e-05"} 0
-workqueue_work_duration_seconds_bucket{name="certificate",le="0.001"} 0
-workqueue_work_duration_seconds_bucket{name="certificate",le="0.01"} 0
-workqueue_work_duration_seconds_bucket{name="certificate",le="0.1"} 0
-workqueue_work_duration_seconds_bucket{name="certificate",le="1"} 0
-workqueue_work_duration_seconds_bucket{name="certificate",le="10"} 0
-workqueue_work_duration_seconds_bucket{name="certificate",le="+Inf"} 0
-workqueue_work_duration_seconds_sum{name="certificate"} 0
-workqueue_work_duration_seconds_count{name="certificate"} 0
+workqueue_work_duration_seconds_bucket{name="certificate",le="9.999999999999999e-06"} 8
+workqueue_work_duration_seconds_bucket{name="certificate",le="9.999999999999999e-05"} 13
+workqueue_work_duration_seconds_bucket{name="certificate",le="0.001"} 13
+workqueue_work_duration_seconds_bucket{name="certificate",le="0.01"} 13
+workqueue_work_duration_seconds_bucket{name="certificate",le="0.1"} 14
+workqueue_work_duration_seconds_bucket{name="certificate",le="1"} 15
+workqueue_work_duration_seconds_bucket{name="certificate",le="10"} 15
+workqueue_work_duration_seconds_bucket{name="certificate",le="+Inf"} 15
+workqueue_work_duration_seconds_sum{name="certificate"} 0.320004593
+workqueue_work_duration_seconds_count{name="certificate"} 15
 workqueue_work_duration_seconds_bucket{name="claims",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="claims",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="claims",le="1e-06"} 0
@@ -1137,11 +1245,11 @@ workqueue_work_duration_seconds_bucket{name="deployment",le="9.999999999999999e-
 workqueue_work_duration_seconds_bucket{name="deployment",le="9.999999999999999e-05"} 0
 workqueue_work_duration_seconds_bucket{name="deployment",le="0.001"} 5
 workqueue_work_duration_seconds_bucket{name="deployment",le="0.01"} 9
-workqueue_work_duration_seconds_bucket{name="deployment",le="0.1"} 10
+workqueue_work_duration_seconds_bucket{name="deployment",le="0.1"} 9
 workqueue_work_duration_seconds_bucket{name="deployment",le="1"} 10
 workqueue_work_duration_seconds_bucket{name="deployment",le="10"} 10
 workqueue_work_duration_seconds_bucket{name="deployment",le="+Inf"} 10
-workqueue_work_duration_seconds_sum{name="deployment"} 0.03634961799999999
+workqueue_work_duration_seconds_sum{name="deployment"} 0.42989636899999994
 workqueue_work_duration_seconds_count{name="deployment"} 10
 workqueue_work_duration_seconds_bucket{name="disruption",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="disruption",le="1e-07"} 0
@@ -1173,15 +1281,28 @@ workqueue_work_duration_seconds_bucket{name="endpoint",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="endpoint",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="endpoint",le="1e-06"} 0
 workqueue_work_duration_seconds_bucket{name="endpoint",le="9.999999999999999e-06"} 0
-workqueue_work_duration_seconds_bucket{name="endpoint",le="9.999999999999999e-05"} 3
+workqueue_work_duration_seconds_bucket{name="endpoint",le="9.999999999999999e-05"} 2
 workqueue_work_duration_seconds_bucket{name="endpoint",le="0.001"} 3
-workqueue_work_duration_seconds_bucket{name="endpoint",le="0.01"} 6
-workqueue_work_duration_seconds_bucket{name="endpoint",le="0.1"} 6
+workqueue_work_duration_seconds_bucket{name="endpoint",le="0.01"} 5
+workqueue_work_duration_seconds_bucket{name="endpoint",le="0.1"} 5
 workqueue_work_duration_seconds_bucket{name="endpoint",le="1"} 6
 workqueue_work_duration_seconds_bucket{name="endpoint",le="10"} 6
 workqueue_work_duration_seconds_bucket{name="endpoint",le="+Inf"} 6
-workqueue_work_duration_seconds_sum{name="endpoint"} 0.014105621
+workqueue_work_duration_seconds_sum{name="endpoint"} 0.164106578
 workqueue_work_duration_seconds_count{name="endpoint"} 6
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="1e-08"} 0
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="1e-07"} 0
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="1e-06"} 0
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="9.999999999999999e-06"} 0
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="9.999999999999999e-05"} 1
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="0.001"} 3
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="0.01"} 8
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="0.1"} 8
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="1"} 9
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="10"} 9
+workqueue_work_duration_seconds_bucket{name="endpoint_slice",le="+Inf"} 9
+workqueue_work_duration_seconds_sum{name="endpoint_slice"} 0.377484778
+workqueue_work_duration_seconds_count{name="endpoint_slice"} 9
 workqueue_work_duration_seconds_bucket{name="garbage_collector_attempt_to_delete",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="garbage_collector_attempt_to_delete",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="garbage_collector_attempt_to_delete",le="1e-06"} 0
@@ -1211,16 +1332,16 @@ workqueue_work_duration_seconds_count{name="garbage_collector_attempt_to_orphan"
 workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1e-06"} 0
-workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="9.999999999999999e-06"} 342
-workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="9.999999999999999e-05"} 822
-workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.001"} 822
-workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.01"} 822
-workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.1"} 822
-workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1"} 822
-workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="10"} 822
-workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="+Inf"} 822
-workqueue_work_duration_seconds_sum{name="garbage_collector_graph_changes"} 0.009687669
-workqueue_work_duration_seconds_count{name="garbage_collector_graph_changes"} 822
+workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="9.999999999999999e-06"} 268
+workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="9.999999999999999e-05"} 431
+workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.001"} 431
+workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.01"} 431
+workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="0.1"} 431
+workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="1"} 431
+workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="10"} 431
+workqueue_work_duration_seconds_bucket{name="garbage_collector_graph_changes",le="+Inf"} 431
+workqueue_work_duration_seconds_sum{name="garbage_collector_graph_changes"} 0.004179398
+workqueue_work_duration_seconds_count{name="garbage_collector_graph_changes"} 431
 workqueue_work_duration_seconds_bucket{name="horizontalpodautoscaler",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="horizontalpodautoscaler",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="horizontalpodautoscaler",le="1e-06"} 0
@@ -1263,16 +1384,16 @@ workqueue_work_duration_seconds_count{name="namespace"} 0
 workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="1e-06"} 0
-workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="9.999999999999999e-06"} 9
-workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="9.999999999999999e-05"} 17
-workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="0.001"} 17
-workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="0.01"} 18
-workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="0.1"} 18
-workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="1"} 18
-workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="10"} 18
-workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="+Inf"} 18
-workqueue_work_duration_seconds_sum{name="node_lifecycle_controller"} 0.009026033000000001
-workqueue_work_duration_seconds_count{name="node_lifecycle_controller"} 18
+workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="9.999999999999999e-06"} 1
+workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="9.999999999999999e-05"} 6
+workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="0.001"} 6
+workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="0.01"} 8
+workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="0.1"} 9
+workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="1"} 9
+workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="10"} 9
+workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller",le="+Inf"} 9
+workqueue_work_duration_seconds_sum{name="node_lifecycle_controller"} 0.053261062
+workqueue_work_duration_seconds_count{name="node_lifecycle_controller"} 9
 workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="1e-06"} 0
@@ -1284,7 +1405,7 @@ workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller_pods",le=
 workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="1"} 1
 workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="10"} 1
 workqueue_work_duration_seconds_bucket{name="node_lifecycle_controller_pods",le="+Inf"} 1
-workqueue_work_duration_seconds_sum{name="node_lifecycle_controller_pods"} 2.7385e-05
+workqueue_work_duration_seconds_sum{name="node_lifecycle_controller_pods"} 4.9399e-05
 workqueue_work_duration_seconds_count{name="node_lifecycle_controller_pods"} 1
 workqueue_work_duration_seconds_bucket{name="noexec_taint_node",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="noexec_taint_node",le="1e-07"} 0
@@ -1297,12 +1418,12 @@ workqueue_work_duration_seconds_bucket{name="noexec_taint_node",le="0.1"} 1
 workqueue_work_duration_seconds_bucket{name="noexec_taint_node",le="1"} 1
 workqueue_work_duration_seconds_bucket{name="noexec_taint_node",le="10"} 1
 workqueue_work_duration_seconds_bucket{name="noexec_taint_node",le="+Inf"} 1
-workqueue_work_duration_seconds_sum{name="noexec_taint_node"} 8.3538e-05
+workqueue_work_duration_seconds_sum{name="noexec_taint_node"} 2.2667e-05
 workqueue_work_duration_seconds_count{name="noexec_taint_node"} 1
 workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="1e-06"} 0
-workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="9.999999999999999e-06"} 2
+workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="9.999999999999999e-06"} 1
 workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="9.999999999999999e-05"} 2
 workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="0.001"} 2
 workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="0.01"} 2
@@ -1310,7 +1431,7 @@ workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="0.1"} 2
 workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="1"} 2
 workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="10"} 2
 workqueue_work_duration_seconds_bucket{name="noexec_taint_pod",le="+Inf"} 2
-workqueue_work_duration_seconds_sum{name="noexec_taint_pod"} 1.806e-05
+workqueue_work_duration_seconds_sum{name="noexec_taint_pod"} 3.3454e-05
 workqueue_work_duration_seconds_count{name="noexec_taint_pod"} 2
 workqueue_work_duration_seconds_bucket{name="orphaned_pods_nodes",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="orphaned_pods_nodes",le="1e-07"} 0
@@ -1368,15 +1489,15 @@ workqueue_work_duration_seconds_bucket{name="replicaset",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="replicaset",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="replicaset",le="1e-06"} 0
 workqueue_work_duration_seconds_bucket{name="replicaset",le="9.999999999999999e-06"} 0
-workqueue_work_duration_seconds_bucket{name="replicaset",le="9.999999999999999e-05"} 5
-workqueue_work_duration_seconds_bucket{name="replicaset",le="0.001"} 5
-workqueue_work_duration_seconds_bucket{name="replicaset",le="0.01"} 6
-workqueue_work_duration_seconds_bucket{name="replicaset",le="0.1"} 8
-workqueue_work_duration_seconds_bucket{name="replicaset",le="1"} 8
-workqueue_work_duration_seconds_bucket{name="replicaset",le="10"} 8
-workqueue_work_duration_seconds_bucket{name="replicaset",le="+Inf"} 8
-workqueue_work_duration_seconds_sum{name="replicaset"} 0.042571618000000006
-workqueue_work_duration_seconds_count{name="replicaset"} 8
+workqueue_work_duration_seconds_bucket{name="replicaset",le="9.999999999999999e-05"} 6
+workqueue_work_duration_seconds_bucket{name="replicaset",le="0.001"} 7
+workqueue_work_duration_seconds_bucket{name="replicaset",le="0.01"} 9
+workqueue_work_duration_seconds_bucket{name="replicaset",le="0.1"} 9
+workqueue_work_duration_seconds_bucket{name="replicaset",le="1"} 10
+workqueue_work_duration_seconds_bucket{name="replicaset",le="10"} 10
+workqueue_work_duration_seconds_bucket{name="replicaset",le="+Inf"} 10
+workqueue_work_duration_seconds_sum{name="replicaset"} 0.2186023
+workqueue_work_duration_seconds_count{name="replicaset"} 10
 workqueue_work_duration_seconds_bucket{name="replicationmanager",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="replicationmanager",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="replicationmanager",le="1e-06"} 0
@@ -1393,16 +1514,16 @@ workqueue_work_duration_seconds_count{name="replicationmanager"} 0
 workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1e-06"} 0
-workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="9.999999999999999e-06"} 20
-workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="9.999999999999999e-05"} 22
-workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.001"} 22
-workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.01"} 22
-workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.1"} 22
-workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1"} 22
-workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="10"} 22
-workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="+Inf"} 22
-workqueue_work_duration_seconds_sum{name="resource_quota_controller_resource_changes"} 9.280599999999999e-05
-workqueue_work_duration_seconds_count{name="resource_quota_controller_resource_changes"} 22
+workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="9.999999999999999e-06"} 0
+workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="9.999999999999999e-05"} 0
+workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.001"} 0
+workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.01"} 0
+workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="0.1"} 0
+workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="1"} 0
+workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="10"} 0
+workqueue_work_duration_seconds_bucket{name="resource_quota_controller_resource_changes",le="+Inf"} 0
+workqueue_work_duration_seconds_sum{name="resource_quota_controller_resource_changes"} 0
+workqueue_work_duration_seconds_count{name="resource_quota_controller_resource_changes"} 0
 workqueue_work_duration_seconds_bucket{name="resourcequota_primary",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="resourcequota_primary",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="resourcequota_primary",le="1e-06"} 0
@@ -1449,38 +1570,38 @@ workqueue_work_duration_seconds_bucket{name="serviceaccount",le="9.9999999999999
 workqueue_work_duration_seconds_bucket{name="serviceaccount",le="9.999999999999999e-05"} 0
 workqueue_work_duration_seconds_bucket{name="serviceaccount",le="0.001"} 0
 workqueue_work_duration_seconds_bucket{name="serviceaccount",le="0.01"} 3
-workqueue_work_duration_seconds_bucket{name="serviceaccount",le="0.1"} 4
+workqueue_work_duration_seconds_bucket{name="serviceaccount",le="0.1"} 3
 workqueue_work_duration_seconds_bucket{name="serviceaccount",le="1"} 4
 workqueue_work_duration_seconds_bucket{name="serviceaccount",le="10"} 4
 workqueue_work_duration_seconds_bucket{name="serviceaccount",le="+Inf"} 4
-workqueue_work_duration_seconds_sum{name="serviceaccount"} 0.04247571
+workqueue_work_duration_seconds_sum{name="serviceaccount"} 0.16487558899999996
 workqueue_work_duration_seconds_count{name="serviceaccount"} 4
 workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="1e-06"} 0
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="9.999999999999999e-06"} 3
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="9.999999999999999e-06"} 11
 workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="9.999999999999999e-05"} 30
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.001"} 30
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.01"} 30
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.1"} 30
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="1"} 30
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="10"} 30
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="+Inf"} 30
-workqueue_work_duration_seconds_sum{name="serviceaccount_tokens_secret"} 0.000441884
-workqueue_work_duration_seconds_count{name="serviceaccount_tokens_secret"} 30
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.001"} 31
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.01"} 31
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="0.1"} 31
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="1"} 31
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="10"} 31
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_secret",le="+Inf"} 31
+workqueue_work_duration_seconds_sum{name="serviceaccount_tokens_secret"} 0.0007053940000000002
+workqueue_work_duration_seconds_count{name="serviceaccount_tokens_secret"} 31
 workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="1e-06"} 0
 workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="9.999999999999999e-06"} 0
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="9.999999999999999e-05"} 29
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.001"} 30
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.01"} 41
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.1"} 60
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="1"} 60
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="10"} 60
-workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="+Inf"} 60
-workqueue_work_duration_seconds_sum{name="serviceaccount_tokens_service"} 0.38708077400000007
-workqueue_work_duration_seconds_count{name="serviceaccount_tokens_service"} 60
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="9.999999999999999e-05"} 31
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.001"} 31
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.01"} 42
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="0.1"} 62
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="1"} 62
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="10"} 62
+workqueue_work_duration_seconds_bucket{name="serviceaccount_tokens_service",le="+Inf"} 62
+workqueue_work_duration_seconds_sum{name="serviceaccount_tokens_service"} 0.8986891729999995
+workqueue_work_duration_seconds_count{name="serviceaccount_tokens_service"} 62
 workqueue_work_duration_seconds_bucket{name="statefulset",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="statefulset",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="statefulset",le="1e-06"} 0
@@ -1497,16 +1618,16 @@ workqueue_work_duration_seconds_count{name="statefulset"} 0
 workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="1e-06"} 0
-workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="9.999999999999999e-06"} 17
-workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="9.999999999999999e-05"} 17
-workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="0.001"} 17
-workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="0.01"} 18
-workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="0.1"} 18
-workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="1"} 18
-workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="10"} 18
-workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="+Inf"} 18
-workqueue_work_duration_seconds_sum{name="ttlcontroller"} 0.0036440580000000004
-workqueue_work_duration_seconds_count{name="ttlcontroller"} 18
+workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="9.999999999999999e-06"} 4
+workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="9.999999999999999e-05"} 8
+workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="0.001"} 8
+workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="0.01"} 8
+workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="0.1"} 9
+workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="1"} 9
+workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="10"} 9
+workqueue_work_duration_seconds_bucket{name="ttlcontroller",le="+Inf"} 9
+workqueue_work_duration_seconds_sum{name="ttlcontroller"} 0.028493428
+workqueue_work_duration_seconds_count{name="ttlcontroller"} 9
 workqueue_work_duration_seconds_bucket{name="volume_expand",le="1e-08"} 0
 workqueue_work_duration_seconds_bucket{name="volume_expand",le="1e-07"} 0
 workqueue_work_duration_seconds_bucket{name="volume_expand",le="1e-06"} 0

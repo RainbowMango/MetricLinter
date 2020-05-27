@@ -1,19 +1,19 @@
-# HELP container_cpu_usage_seconds [ALPHA] Cumulative cpu time consumed by the container in core-seconds
-# TYPE container_cpu_usage_seconds gauge
-container_cpu_usage_seconds{container="dnsmasq",namespace="kube-system",pod="kube-dns-547db76c8f-zkch8"} 0.824773478 1576409623845
-container_cpu_usage_seconds{container="kubedns",namespace="kube-system",pod="kube-dns-547db76c8f-zkch8"} 0.752928244 1576409628613
-container_cpu_usage_seconds{container="sidecar",namespace="kube-system",pod="kube-dns-547db76c8f-zkch8"} 1.573367814 1576409610857
+# HELP container_cpu_usage_seconds_total [ALPHA] Cumulative cpu time consumed by the container in core-seconds
+# TYPE container_cpu_usage_seconds_total counter
+container_cpu_usage_seconds_total{container="dnsmasq",namespace="kube-system",pod="kube-dns-c74654849-x8gxv"} 0.699995594 1590547727794
+container_cpu_usage_seconds_total{container="kubedns",namespace="kube-system",pod="kube-dns-c74654849-x8gxv"} 0.486864979 1590547737792
+container_cpu_usage_seconds_total{container="sidecar",namespace="kube-system",pod="kube-dns-c74654849-x8gxv"} 1.022813678 1590547732264
 # HELP container_memory_working_set_bytes [ALPHA] Current working set of the container in bytes
 # TYPE container_memory_working_set_bytes gauge
-container_memory_working_set_bytes{container="dnsmasq",namespace="kube-system",pod="kube-dns-547db76c8f-zkch8"} 7.315456e+06 1576409623845
-container_memory_working_set_bytes{container="kubedns",namespace="kube-system",pod="kube-dns-547db76c8f-zkch8"} 8.507392e+06 1576409628613
-container_memory_working_set_bytes{container="sidecar",namespace="kube-system",pod="kube-dns-547db76c8f-zkch8"} 1.3438976e+07 1576409610857
-# HELP node_cpu_usage_seconds [ALPHA] Cumulative cpu time consumed by the node in core-seconds
-# TYPE node_cpu_usage_seconds gauge
-node_cpu_usage_seconds 183692.787408859 1576409626354
+container_memory_working_set_bytes{container="dnsmasq",namespace="kube-system",pod="kube-dns-c74654849-x8gxv"} 6.402048e+06 1590547727794
+container_memory_working_set_bytes{container="kubedns",namespace="kube-system",pod="kube-dns-c74654849-x8gxv"} 7.33184e+06 1590547737792
+container_memory_working_set_bytes{container="sidecar",namespace="kube-system",pod="kube-dns-c74654849-x8gxv"} 1.028096e+07 1590547732264
+# HELP node_cpu_usage_seconds_total [ALPHA] Cumulative cpu time consumed by the node in core-seconds
+# TYPE node_cpu_usage_seconds_total counter
+node_cpu_usage_seconds_total 765809.538779099 1590547738134
 # HELP node_memory_working_set_bytes [ALPHA] Current working set of the node in bytes
 # TYPE node_memory_working_set_bytes gauge
-node_memory_working_set_bytes 6.729977856e+09 1576409626354
+node_memory_working_set_bytes 9.302183936e+09 1590547738134
 # HELP scrape_error [ALPHA] 1 if there was an error while getting container metrics, 0 otherwise
 # TYPE scrape_error gauge
 scrape_error 0
