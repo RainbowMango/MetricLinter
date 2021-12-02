@@ -1,0 +1,12 @@
+karmada_scheduler_e2e_scheduling_duration_seconds: label names should be written in 'snake_case' not 'camelCase'
+karmada_scheduler_schedule_attempts_total: label names should be written in 'snake_case' not 'camelCase'
+karmada_scheduler_scheduling_algorithm_duration_seconds: label names should be written in 'snake_case' not 'camelCase'
+karmada_scheduler_scheduling_algorithm_duration_seconds: label names should be written in 'snake_case' not 'camelCase'
+karmada_scheduler_scheduling_algorithm_duration_seconds: label names should be written in 'snake_case' not 'camelCase'
+karmada_scheduler_scheduling_algorithm_duration_seconds: label names should be written in 'snake_case' not 'camelCase'
+
+
+Total number of metrics with problems: 3
+karmada_scheduler_e2e_scheduling_duration_seconds
+karmada_scheduler_schedule_attempts_total
+karmada_scheduler_scheduling_algorithm_duration_seconds

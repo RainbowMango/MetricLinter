@@ -1,0 +1,221 @@
+# curl localhost:10351/metrics
+# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 4.3796e-05
+go_gc_duration_seconds{quantile="0.25"} 5.0212e-05
+go_gc_duration_seconds{quantile="0.5"} 8.6617e-05
+go_gc_duration_seconds{quantile="0.75"} 0.000142489
+go_gc_duration_seconds{quantile="1"} 0.000216012
+go_gc_duration_seconds_sum 0.000764526
+go_gc_duration_seconds_count 8
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 57
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version="go1.16.7"} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 7.431496e+06
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 2.2601008e+07
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 1.453532e+06
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 158202
+# HELP go_memstats_gc_cpu_fraction The fraction of this program's available CPU time used by the GC since the program started.
+# TYPE go_memstats_gc_cpu_fraction gauge
+go_memstats_gc_cpu_fraction 1.9977290375915907e-05
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 5.639072e+06
+# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
+# TYPE go_memstats_heap_alloc_bytes gauge
+go_memstats_heap_alloc_bytes 7.431496e+06
+# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
+# TYPE go_memstats_heap_idle_bytes gauge
+go_memstats_heap_idle_bytes 5.6803328e+07
+# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
+# TYPE go_memstats_heap_inuse_bytes gauge
+go_memstats_heap_inuse_bytes 9.453568e+06
+# HELP go_memstats_heap_objects Number of allocated objects.
+# TYPE go_memstats_heap_objects gauge
+go_memstats_heap_objects 65418
+# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.
+# TYPE go_memstats_heap_released_bytes gauge
+go_memstats_heap_released_bytes 5.6287232e+07
+# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
+# TYPE go_memstats_heap_sys_bytes gauge
+go_memstats_heap_sys_bytes 6.6256896e+07
+# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
+# TYPE go_memstats_last_gc_time_seconds gauge
+go_memstats_last_gc_time_seconds 1.632746812642672e+09
+# HELP go_memstats_lookups_total Total number of pointer lookups.
+# TYPE go_memstats_lookups_total counter
+go_memstats_lookups_total 0
+# HELP go_memstats_mallocs_total Total number of mallocs.
+# TYPE go_memstats_mallocs_total counter
+go_memstats_mallocs_total 223620
+# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
+# TYPE go_memstats_mcache_inuse_bytes gauge
+go_memstats_mcache_inuse_bytes 4800
+# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.
+# TYPE go_memstats_mcache_sys_bytes gauge
+go_memstats_mcache_sys_bytes 16384
+# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
+# TYPE go_memstats_mspan_inuse_bytes gauge
+go_memstats_mspan_inuse_bytes 146200
+# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
+# TYPE go_memstats_mspan_sys_bytes gauge
+go_memstats_mspan_sys_bytes 163840
+# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
+# TYPE go_memstats_next_gc_bytes gauge
+go_memstats_next_gc_bytes 8.8964e+06
+# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
+# TYPE go_memstats_other_sys_bytes gauge
+go_memstats_other_sys_bytes 674444
+# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
+# TYPE go_memstats_stack_inuse_bytes gauge
+go_memstats_stack_inuse_bytes 851968
+# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
+# TYPE go_memstats_stack_sys_bytes gauge
+go_memstats_stack_sys_bytes 851968
+# HELP go_memstats_sys_bytes Number of bytes obtained from system.
+# TYPE go_memstats_sys_bytes gauge
+go_memstats_sys_bytes 7.5056136e+07
+# HELP go_threads Number of OS threads created.
+# TYPE go_threads gauge
+go_threads 9
+# HELP karmada_scheduler_e2e_scheduling_duration_seconds E2e scheduling latency in seconds
+# TYPE karmada_scheduler_e2e_scheduling_duration_seconds histogram
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="0.001"} 0
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="0.002"} 0
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="0.004"} 0
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="0.008"} 0
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="0.016"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="0.032"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="0.064"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="0.128"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="0.256"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="0.512"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="1.024"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="2.048"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="4.096"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="8.192"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="16.384"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_bucket{result="scheduled",scheduleType="FirstSchedule",le="+Inf"} 1
+karmada_scheduler_e2e_scheduling_duration_seconds_sum{result="scheduled",scheduleType="FirstSchedule"} 0.011518013
+karmada_scheduler_e2e_scheduling_duration_seconds_count{result="scheduled",scheduleType="FirstSchedule"} 1
+# HELP karmada_scheduler_queue_incoming_bindings_total Number of pods added to scheduling queues by event type.
+# TYPE karmada_scheduler_queue_incoming_bindings_total counter
+karmada_scheduler_queue_incoming_bindings_total{event="BindingAdd"} 1
+karmada_scheduler_queue_incoming_bindings_total{event="BindingUpdate"} 11
+# HELP karmada_scheduler_schedule_attempts_total Number of attempts to schedule resourceBinding
+# TYPE karmada_scheduler_schedule_attempts_total counter
+karmada_scheduler_schedule_attempts_total{result="scheduled",scheduleType="FirstSchedule"} 1
+# HELP karmada_scheduler_scheduling_algorithm_duration_seconds Scheduling algorithm latency in seconds(exclude scale scheduler)
+# TYPE karmada_scheduler_scheduling_algorithm_duration_seconds histogram
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="0.001"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="0.002"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="0.004"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="0.008"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="0.016"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="0.032"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="0.064"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="0.128"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="0.256"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="0.512"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="1.024"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="2.048"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="4.096"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="8.192"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="16.384"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="AssignReplicas",le="+Inf"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_sum{scheduleStep="AssignReplicas"} 4.898e-06
+karmada_scheduler_scheduling_algorithm_duration_seconds_count{scheduleStep="AssignReplicas"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="0.001"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="0.002"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="0.004"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="0.008"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="0.016"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="0.032"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="0.064"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="0.128"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="0.256"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="0.512"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="1.024"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="2.048"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="4.096"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="8.192"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="16.384"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Filter",le="+Inf"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_sum{scheduleStep="Filter"} 3.906e-05
+karmada_scheduler_scheduling_algorithm_duration_seconds_count{scheduleStep="Filter"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="0.001"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="0.002"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="0.004"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="0.008"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="0.016"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="0.032"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="0.064"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="0.128"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="0.256"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="0.512"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="1.024"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="2.048"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="4.096"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="8.192"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="16.384"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Score",le="+Inf"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_sum{scheduleStep="Score"} 6.302e-06
+karmada_scheduler_scheduling_algorithm_duration_seconds_count{scheduleStep="Score"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="0.001"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="0.002"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="0.004"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="0.008"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="0.016"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="0.032"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="0.064"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="0.128"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="0.256"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="0.512"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="1.024"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="2.048"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="4.096"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="8.192"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="16.384"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_bucket{scheduleStep="Select",le="+Inf"} 1
+karmada_scheduler_scheduling_algorithm_duration_seconds_sum{scheduleStep="Select"} 1.982e-06
+karmada_scheduler_scheduling_algorithm_duration_seconds_count{scheduleStep="Select"} 1
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 0.35
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1.048576e+06
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 11
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 2.8233728e+07
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.63274654708e+09
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 7.6507136e+08
+# HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.
+# TYPE process_virtual_memory_max_bytes gauge
+process_virtual_memory_max_bytes 1.8446744073709552e+19
+# HELP promhttp_metric_handler_requests_in_flight Current number of scrapes being served.
+# TYPE promhttp_metric_handler_requests_in_flight gauge
+promhttp_metric_handler_requests_in_flight 1
+# HELP promhttp_metric_handler_requests_total Total number of scrapes by HTTP status code.
+# TYPE promhttp_metric_handler_requests_total counter
+promhttp_metric_handler_requests_total{code="200"} 1
+promhttp_metric_handler_requests_total{code="500"} 0
+promhttp_metric_handler_requests_total{code="503"} 0

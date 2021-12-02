@@ -50,57 +50,63 @@ func main() {
 		{
 			name:     "kube-apiserver",
 			endpoint: "/metrics", // curl localhost:8080/metrics
-			url:      "http://localhost:8080/metrics",
-			file:     "data/apimetrics",
-			report:   "report/kube-apiserver.log",
+			// url:      "http://localhost:8080/metrics",
+			file:   "data/apimetrics",
+			report: "report/kube-apiserver.log",
 		},
 		{
 			name:     "kube-scheduler",
 			endpoint: "/metrics", // curl localhost:10251/metrics
-			url:      "http://localhost:10251/metrics",
-			file:     "data/kubescheduler",
-			report:   "report/kube-scheduler.log",
+			// url:      "http://localhost:10251/metrics",
+			file:   "data/kubescheduler",
+			report: "report/kube-scheduler.log",
 		},
 		{
 			name:     "kube-proxy",
 			endpoint: "/metrics", // curl localhost:10249/metrics
-			url:      "http://localhost:10249/metrics",
-			file:     "data/kubeproxy",
-			report:   "report/kube-proxy.log",
+			// url:      "http://localhost:10249/metrics",
+			file:   "data/kubeproxy",
+			report: "report/kube-proxy.log",
 		},
 		{
 			name:     "kubelet-resource-v1alpha1",
 			endpoint: "/metrics/resource/v1alpha1", // curl localhost:10255/metrics/resource/v1alpha1
-			url:      "http://localhost:10255/metrics/resource/v1alpha1",
-			file:     "data/kubeletresourcev1alpha1",
-			report:   "report/kubelet-resource-v1alpha1.log",
+			// url:      "http://localhost:10255/metrics/resource/v1alpha1",
+			file:   "data/kubeletresourcev1alpha1",
+			report: "report/kubelet-resource-v1alpha1.log",
 		},
 		{
 			name:     "kubelet-resource",
 			endpoint: "/metrics/resource", // curl localhost:10255/metrics/resource
-			url:      "http://localhost:10255/metrics/resource",
-			file:     "data/kubeletresource",
-			report:   "report/kubelet-resource.log",
+			// url:      "http://localhost:10255/metrics/resource",
+			file:   "data/kubeletresource",
+			report: "report/kubelet-resource.log",
 		},
 		{
 			name:     "kubelet-probes",
 			endpoint: "/metrics/probes", // curl localhost:10255/metrics/probes
-			url:      "http://localhost:10255/metrics/probes",
-			file:     "data/kubeletprobes",
-			report:   "report/kubelet-probes.log",
+			// url:      "http://localhost:10255/metrics/probes",
+			file:   "data/kubeletprobes",
+			report: "report/kubelet-probes.log",
 		},
 		{
 			name:     "kube-controller-manager",
 			endpoint: "/metrics", // curl localhost:10252/metrics
-			url:      "http://localhost:10252/metrics",
-			file:     "data/kubecontrollermanager",
-			report:   "report/kube-controller-manager.log",
+			// url:      "http://localhost:10252/metrics",
+			file:   "data/kubecontrollermanager",
+			report: "report/kube-controller-manager.log",
 		},
 		{
 			name:     "cloud-controller-manager",
 			endpoint: "/metrics", // curl localhost:10253/metrics (not available on local cluster started by hack/local-cluster.sh)
 			file:     "data/cloudcontrollermanager",
 			report:   "report/cloud-controller-manager.log",
+		},
+		{
+			name:     "karmada-scheduler",
+			endpoint: "/metrics", // curl localhost:10253/metrics (not available on local cluster started by hack/local-cluster.sh)
+			file:     "data/karmada-scheduler",
+			report:   "report/karmada-cheduler.log",
 		},
 	}
 
